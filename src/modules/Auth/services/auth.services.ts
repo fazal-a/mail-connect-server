@@ -11,7 +11,7 @@ export const getToken = async (code: string): Promise<any> => {
     try {
             const { tokens } = await oAuth2Client.getToken(code);
         console.log('token from the auth.services getToken function tokens::',tokens)
-            oAuth2Client.setCredentials(tokens);
+            // oAuth2Client.setCredentials(tokens);
             return tokens;
 
     } catch (error:any) {

@@ -5,13 +5,14 @@ import * as UserService from "../services/User.service";
 export default {
     getUser: async (req: Request, res: Response) => {
         try {
-            const userProfile = await UserService.find();
+            const tokens = req.body.tokens;
+            const userProfile = await UserService.find(tokens);
             if (userProfile) {
-                res.status(200).send(userProfile);
+                return res.status(200).json(userProfile);
             }
-            res.status(404).send("user not found");
+            return res.status(404).json({ error: 'User not found' });
         } catch (e: any) {
-            res.status(500).send(e.message);
+            res.status(500).json({ error: e.message });
         }
     },
 };
