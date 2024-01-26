@@ -1,8 +1,8 @@
 import express, {Express} from 'express';
 import ThreadsController from "../controllers/threads.controllers";
 
-const threadsRouter: Express = express();
+const threadsRoutes: Express = express();
 
-threadsRouter.get("/getThreadsList", ThreadsController.fetchThreadsList);
-threadsRouter.get("/getThreadDetails/:id", ThreadsController.fetchThreadDetails);
-export default threadsRouter;
+threadsRoutes.get("/getThreadsList", ThreadsController.fetchThreadsList);
+threadsRoutes.get("/getThreadDetails/:id", ThreadsController.fetchThreadDetails);
+export default threadsRoutes;
