@@ -3,7 +3,7 @@ import { OAuth2Client } from 'google-auth-library';
 const oAuth2Client = new OAuth2Client({
     clientId: '858871017230-f7qoe7dpqj202r3p6ucrca3g8jrgj176.apps.googleusercontent.com',
     clientSecret: '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',
-    redirectUri: 'http://localhost:3000/auth',
+    redirectUri: 'http://localhost:3000/login',
 });
 export const authorizeUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
