@@ -6,7 +6,7 @@ export default {
         try {
             const authorizeUrl: String = await AuthService.getAuthorizeUrl();
             console.log('success in in getting authorizeUrl::', authorizeUrl)
-            res.status(200).send(authorizeUrl);
+            res.status(200).json({"url": authorizeUrl});
         } catch (e: any) {
             console.log('failure in in getting authorizeUrl error::', e)
             res.status(500).send(e.message);
