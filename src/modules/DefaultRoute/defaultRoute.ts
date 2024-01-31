@@ -1,5 +1,4 @@
 import express, {Express, Request, Response} from 'express';
-import * as UserService from "../Users/services/User.service";
 
 const defaultRouter: Express = express();
 
