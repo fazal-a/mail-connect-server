@@ -6,7 +6,7 @@ export default {
         try {
             console.log("i am in fetch threads list controller start");
             const tokens = req.body.tokens;
-            const messagesList = await MessagesServices.fetchMessagesList(tokens);
+            const messagesList = await MessagesServices.fetchMessagesList();
             console.log("messagesList::", messagesList)
             if (messagesList) {
                 res.status(200).json(messagesList);
@@ -25,7 +25,7 @@ export default {
             const tokens = req.body.tokens;
 
             console.log("i am in fetch threads detail gotID::", gotID);
-            const messageDetails = await MessagesServices.fetchMessageDetails(gotID, tokens);
+            const messageDetails = await MessagesServices.fetchMessageDetails(gotID);
             console.log("threadDetails::", messageDetails)
             if (messageDetails) {
                 res.status(200).json(messageDetails);
