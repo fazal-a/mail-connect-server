@@ -4,16 +4,17 @@ import * as ThreadsServices from "../services/Threads.service";
 export default {
     fetchThreadsList: async (req: Request, res: Response) => {
         try {
-            console.log("i am in fetch threads list controller start");
-            const tokens = req.body.tokens;
-            const threadsList = await ThreadsServices.fetchThreadsList(tokens);
-            console.log("threadsList::",threadsList)
+            console.log("start fetch threads list controller");
+            const threadsList = await ThreadsServices.fetchThreadsList();
             if (threadsList) {
-                res.status(200).json(threadsList);
+                console.log("threadsList::",threadsList);
+                const detailedThreads = await ThreadsServices.fetchDetailedThreadsList(threadsList.threads)
+                console.log("detailedThreads::",detailedThreads);
+                res.status(200).json(detailedThreads);
             }else{
                 res.status(404).json({error: "failure in fetching threads list"});
             }
-            console.log("i am in fetch threads list controller end");
+            console.log("end fetch threads list controller");
         } catch (e: any) {
             res.status(500).json({error: e.message});
         }
@@ -25,7 +26,7 @@ export default {
             const tokens = req.body.tokens;
 
             console.log("i am in fetch threads detail gotID::",gotID);
-            const threadDetails = await ThreadsServices.fetchThreadDetails(gotID, tokens);
+            const threadDetails = await ThreadsServices.fetchThreadDetails(gotID);
             console.log("threadDetails::",threadDetails)
             if (threadDetails) {
                 res.status(200).json(threadDetails);
