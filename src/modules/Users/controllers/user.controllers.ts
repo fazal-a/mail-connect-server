@@ -5,8 +5,7 @@ import * as UserService from "../services/User.service";
 export default {
     getUser: async (req: Request, res: Response) => {
         try {
-            const tokens = req.body.tokens;
-            const userProfile = await UserService.find(tokens);
+            const userProfile = await UserService.find();
             if (userProfile) {
                 return res.status(200).json(userProfile);
             }
