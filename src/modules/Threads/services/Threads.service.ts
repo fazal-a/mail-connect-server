@@ -1,7 +1,6 @@
 import axios from "axios";
 import {oAuth2Client} from "../../../Shared/Utils/OAuth2Clinet";
 
-//import { OAuth2Client } from "google-auth-library"; // Assuming this is the library you're using
 
 export const fetchThreadsList = async (): Promise<any> => {
     try {
@@ -45,7 +44,6 @@ export const fetchDetailedThreadsList = async (threadsList:any): Promise<any> =>
 
 export const fetchThreadDetails = async (gotID: string): Promise<any> => {
     try {
-        
         console.log("i am in fetch threads details function");
         const response = await axios.get('https://gmail.googleapis.com/gmail/v1/users/teams.qau@gmail.com/threads/'+gotID, {
             headers: {
